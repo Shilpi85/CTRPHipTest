@@ -1,0 +1,85 @@
+[
+  {
+    "elements": [
+      {
+        "id": "create-organization;po--create-organization",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "PO- Create Organization",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 333712
+            },
+            "hidden": true,
+            "match": {
+              "location": "/Users/singhs10/CTRPHipTest/features/step_definitions/step_definitions.js:2"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "Login in to CTRP app \"http://ctrp-qa.ncifcrf.gov/\" \"ctrpcurator\" \"Welcome01\"",
+            "result": {
+              "status": "passed",
+              "duration": 4264013400
+            },
+            "line": 5,
+            "match": {
+              "location": "/Users/singhs10/CTRPHipTest/features/step_definitions/step_definitions.js:11"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "Select page \"Add Organization\"",
+            "result": {
+              "status": "failed",
+              "duration": 5003576647,
+              "error_message": "function timed out after 5000 milliseconds"
+            },
+            "line": 6,
+            "match": {
+              "location": "/Users/singhs10/CTRPHipTest/features/step_definitions/step_definitions.js:20"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "PO Create Organization \"Henry Ford Health System\" \"Henry Ford\" \"2799 W. Grand Blvd.\" \"Building 5\" \"United States\" \"Michigan\" \"Detroit\" \"48202\" \"henryford@hfs.com\" \"(313) 916-1666\" \"01\"",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 7,
+            "match": {
+              "location": "/Users/singhs10/CTRPHipTest/features/step_definitions/step_definitions.js:27"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 103154
+            },
+            "hidden": true,
+            "match": {
+              "location": "/Users/singhs10/CTRPHipTest/features/step_definitions/step_definitions.js:6"
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "create-organization",
+    "keyword": "Feature",
+    "line": 1,
+    "name": "Create Organization",
+    "tags": [],
+    "uri": "/Users/singhs10/CTRPHipTest/features/Organization/Create_Organization.feature"
+  }
+]
