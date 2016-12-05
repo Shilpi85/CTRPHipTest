@@ -13,7 +13,12 @@ exports.config = {
 
     specs: [
         // Login Page
-        'features/Organization/Create_Organization.feature '
+        'features/Organization/Create_Organization.feature',
+        'features/Organization/Search_Organization.feature',
+        'features/Person/Create_Person.feature',
+        'features/Person/Search_Person.feature',
+        'features/Family/Create_Family.feature',
+        'features/Family/Search_Family.feature'
    ],
 
 

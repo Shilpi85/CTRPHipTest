@@ -13,11 +13,11 @@
             "name": "Login in to CTRP app \"http://ctrp-qa.ncifcrf.gov/\" \"ctrpcurator\" \"Welcome01\"",
             "result": {
               "status": "passed",
-              "duration": 3432426638
+              "duration": 3015122559
             },
             "line": 5,
             "match": {
-              "location": "/Users/singhs10/CTRPHipTest/features/step_definitions/step_definitions.js:20"
+              "location": "/Users/ahmeds6/projects/CTRPHipTest/CTRPHipTest/features/step_definitions/step_definitions.js:20"
             }
           },
           {
@@ -26,11 +26,11 @@
             "name": "Select page \"Add Organization\"",
             "result": {
               "status": "passed",
-              "duration": 9961019444
+              "duration": 9787968731
             },
             "line": 6,
             "match": {
-              "location": "/Users/singhs10/CTRPHipTest/features/step_definitions/step_definitions.js:33"
+              "location": "/Users/ahmeds6/projects/CTRPHipTest/CTRPHipTest/features/step_definitions/step_definitions.js:33"
             }
           },
           {
@@ -39,11 +39,11 @@
             "name": "PO Create Organization \"Henry Ford Health System\" \"Henry Ford\" \"2799 W. Grand Blvd.\" \"Building 5\" \"United States\" \"Michigan\" \"Detroit\" \"48202\" \"henryford@hfs.com\" \"(313) 916-1666\" \"01\"",
             "result": {
               "status": "passed",
-              "duration": 11117786456
+              "duration": 11028421754
             },
             "line": 7,
             "match": {
-              "location": "/Users/singhs10/CTRPHipTest/features/step_definitions/step_definitions.js:40"
+              "location": "/Users/ahmeds6/projects/CTRPHipTest/CTRPHipTest/features/step_definitions/step_definitions.js:40"
             }
           }
         ],
@@ -56,6 +56,6 @@
     "line": 1,
     "name": "Create Organization",
     "tags": [],
-    "uri": "/Users/singhs10/CTRPHipTest/features/Organization/Create_Organization.feature"
+    "uri": "/Users/ahmeds6/projects/CTRPHipTest/CTRPHipTest/features/Organization/Create_Organization.feature"
   }
 ]
