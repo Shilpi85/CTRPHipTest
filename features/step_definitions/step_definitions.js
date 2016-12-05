@@ -1,33 +1,46 @@
+
+var chai = require('chai');
+var chaiAsPromised = require('chai-as-promised');
+chai.use(chaiAsPromised);
+var expect = require('chai').expect;
+var actionPage = require('../step_definitions/actionwords');
+
 module.exports = function () {
-    this.Before(function (scenario) {
-        this.actionwords = Object.create(require('./actionwords.js').Actionwords);
-    });
-
-    this.After(function (scenario) {
-        this.actionwords = null;
-    });
-
-
-    this.Given(/^Login in to CTRP app "(.*)" "(.*)" "(.*)"$/, function (url, username, password,callback) {
-       // return  browser.sleep(25).then(function () {
-            this.actionwords.loginInToCTRPApp(url, username, password,callback);
-       // });
-       // callback();
-    });
+    var actionWords = new actionPage();
+    this.setDefaultTimeout(60 * 1000);
+    //this.Before(function (scenario) {
+    //    //Object.create(require('./actionwords.js').Actionwords);
+    //});
+    //
+    //this.After(function (scenario) {
+    //    this.actionwords = null;
+    //});
 
 
-
-    this.Given(/^Select page "(.*)"$/, function (page,callback) {
-      //  return  browser.sleep(25).then(function () {
-            this.actionwords.selectPage(page,callback);
+    this.Given(/^Login in to CTRP app "(.*)" "(.*)" "(.*)"$/, function (url, username, password) {
+        return  browser.sleep(25).then(function () {
+            console.log('******url********');
+            console.log(url);
+            console.log(username);
+            console.log(password);
+            actionWords.loginInToCTRPApp(url, username, password);
+        });
       //  callback();
-        //});
     });
 
-    this.Given(/^PO Create Organization "(.*)" "(.*)" "(.*)" "(.*)" "(.*)" "(.*)" "(.*)" "(.*)" "(.*)" "(.*)" "(.*)"$/, function (name, alias, address1, address2, country, state, city, postal_code, email, phone, phone_ext, callback) {
-      //  return  browser.sleep(25).then(function () {
-            this.actionwords.pOCreateOrganization(name, alias, address1, address2, country, state, city, postal_code, email, phone, phone_ext,callback);
-        //});
+
+
+    this.Given(/^Select page "(.*)"$/, function (page) {
+        return  browser.sleep(25).then(function () {
+            actionWords.selectPage(page);
+      //  callback();
+        });
+    });
+
+    this.Given(/^PO Create Organization "(.*)" "(.*)" "(.*)" "(.*)" "(.*)" "(.*)" "(.*)" "(.*)" "(.*)" "(.*)" "(.*)"$/, function (name, alias, address1, address2, country, state, city, postal_code, email, phone, phone_ext) {
+        return  browser.sleep(25).then(function () {
+            actionWords.pOCreateOrganization(name, alias, address1, address2, country, state, city, postal_code, email, phone, phone_ext);
+        });
        // callback();
     });
 

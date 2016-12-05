@@ -5,8 +5,8 @@ exports.config = {
     onPrepare: function () {
         browser.manage().timeouts().setScriptTimeout(60000);
     },
-    seleniumAddress: 'http://localhost:4444/wd/hub',
-   // directConnect: true,
+ //   seleniumAddress: 'http://localhost:4444/wd/hub',
+    directConnect: true,
     capabilities: {
         browserName: 'firefox'
     },

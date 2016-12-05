@@ -1,55 +1,47 @@
+/*
 var loginPage = require('../support/LoginPage');
+
 var login = new loginPage();
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 var expect = require('chai').expect;
 var menuItemList = require('../support/PoCommonBar');
-//var menuItem = new menuItemList();
+var menuItem = new menuItemList();
 var addOrgPage = require('../support/AddOrganizationPage');
-//var addOrg = new addOrgPage();
+var addOrg = new addOrgPage();
 var selectValuePage = require('../support/CommonSelectList');
-//var selectValue = new selectValuePage();
+var selectValue = new selectValuePage();
 
-var actionwords = function () {
-
-    var self = this;
-    var login = new loginPage();
-    var menuItem = new menuItemList();
-    var addOrg = new addOrgPage();
-    var selectValue = new selectValuePage();
+exports.Actionwords = {
 
 
-
-    this.loginInToCTRPApp = function(url, username, password) {
-        console.log('******url2222********');
-        console.log(url);
-        console.log(username);
-        console.log(password);
+    loginInToCTRPApp: function (url, username, password,callback) {
+        // TODO: Implement action: "Given URL of CTRP page is " + String(URL)
+        // TODO: Implement action: "And I enter the Username as " + String(username)
+        // TODO: Implement action: "And I enter the Password as " + String(password)
+        // TODO: Implement result: "Then the User should be logged in"
       //  return  browser.sleep(25).then(function () {
             browser.get(url);
-        browser.driver.wait(function () {
-            console.log('wait here');
-            return true;
-        }, 40).then(function () {
             login.login(username, password);
             login.accept();
-            expect(element(by.binding('headerView.username')).getText()).to.eventually.equal(username);//.and.notify(callback);
-        });
-    };
-
-    this.selectPage = function(page) {
-
-        if(page === 'Add Organization'){
+            expect(element(by.binding('headerView.username')).getText()).to.eventually.equal(username).and.notify(callback);
+      //  });
+    },
+    selectPage: function (page,callback) {
+        // TODO: Implement action: "And I want to " + String(page)
+        // TODO: Implement result: "Then I should be in " + String(page)
+       // throw 'Not implemented';
+      //  if(page = 'Add Organization'){
             menuItem.clickHomeEnterOrganizations();
             login.clickWriteMode('On');
             menuItem.clickOrganizations();
             menuItem.clickAddOrganizations();
-            expect(element.all(by.binding('step.ncyBreadcrumbLabel')).last().getText()).to.eventually.equal('Add Organization');//.and.notify(callback);
+            expect(element.all(by.binding('step.ncyBreadcrumbLabel')).last().getText()).to.eventually.equal('Add Organization').and.notify(callback);
 
-        }
-    };
-    this.pOCreateOrganization = function (name, alias, address1, address2, country, state, city, postal_code, email, phone, phone_ext) {
+      //  }
+    },
+    pOCreateOrganization: function (name, alias, address1, address2, country, state, city, postal_code, email, phone, phone_ext,callback) {
         // TODO: Implement action: "And I enter the Organization Name " + String(name)
         // TODO: Implement action: "And I enter the Organization Alias " + String(alias)
         // TODO: Implement action: "And I enter the Organization Address1 " + String(address1)
@@ -77,18 +69,19 @@ addOrg.setAddExtension(phone_ext);
             console.log('wait here');
             return true;
         }, 40).then(function () {
-            self.clickButton("save");
+            this.clickButton("save");
         });
         // TODO: Implement result: "Then Organization should be created"
       //  throw 'Not implemented';
-    };
-    this.clickButton= function (button) {
+    },
+    clickButton: function (button,callback) {
         // TODO: Implement action: "And I click on " + String(button)
         if(button === 'save') {
             addOrg.clickSave();
+            browser.sleep(25).then(callback);
         }
-    };
-    this.pOSearchOrganization= function (name, alias, family_name, source_context, source_id, source_status, city, postal_code, country, phone, email, state, processing_status, updated_by, service_request, last_updated_start_date, last_updated_end_date, exact_search) {
+    },
+    pOSearchOrganization: function (name, alias, family_name, source_context, source_id, source_status, city, postal_code, country, phone, email, state, processing_status, updated_by, service_request, last_updated_start_date, last_updated_end_date, exact_search) {
         // TODO: Implement action: "and I enter the Name " + String(name) + " for Organization search"
         // TODO: Implement action: "and I check the Alias " + String(alias) + " for Organization search"
         // TODO: Implement action: "and I enter the Family Name " + String(familyName) + " for Organization search"
@@ -111,8 +104,8 @@ addOrg.setAddExtension(phone_ext);
         this.clickButton("search");
         // TODO: Implement result: "Then Result  should be displayed for Organization"
         throw 'Not implemented';
-    };
-    this.regSearchOrganization = function (name, alias, family_name, source_id, city, postal_code, country, phone, email, state, updated_by, exact_search) {
+    },
+    regSearchOrganization: function (name, alias, family_name, source_id, city, postal_code, country, phone, email, state, updated_by, exact_search) {
         // TODO: Implement action: "and I enter the Name " + String(name) + " for Organization search"
         // TODO: Implement action: "and I check the Alias " + String(alias) + " for Organization search"
         // TODO: Implement action: "and I enter the Family Name " + String(familyName) + " for Organization search"
@@ -128,6 +121,6 @@ addOrg.setAddExtension(phone_ext);
         this.clickButton("search");
         // TODO: Implement result: "Then Result  should be displayed for Organization"
         throw 'Not implemented';
-    };
+    }
 };
-module.exports = actionwords;
+    */

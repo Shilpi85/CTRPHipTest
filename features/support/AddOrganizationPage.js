@@ -97,11 +97,12 @@ AddOrganizationsPage = function(){
     };
 
     this.setAddPhone = function(phone){
-        this.addCountry.$('option:checked').getText().then(function(countryValue){
-            console.log("Alpha 2 code for selected country => " + countries.getAlpha2Code(countryValue, 'en'));
-            console.log('************Phone number format: ' + phoneFormat.formatLocal(countries.getAlpha2Code(countryValue, 'en'), phone));
-            addOrg.setValue(self.addPhone,phoneFormat.formatLocal(countries.getAlpha2Code(countryValue, 'en'), phone),"Organization by Phone field");
-        });
+        //this.addCountry.$('option:checked').getText().then(function(countryValue){
+        //    console.log("Alpha 2 code for selected country => " + countries.getAlpha2Code(countryValue, 'en'));
+        //    console.log('************Phone number format: ' + phoneFormat.formatLocal(countries.getAlpha2Code(countryValue, 'en'), phone));
+        //    addOrg.setValue(self.addPhone,phoneFormat.formatLocal(countries.getAlpha2Code(countryValue, 'en'), phone),"Organization by Phone field");
+        //});
+        this.addPhone.sendKeys(phone);
     };
 
     this.setAddFax = function(fax){

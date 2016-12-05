@@ -9,39 +9,13 @@
         "steps": [
           {
             "arguments": [],
-            "keyword": "Before ",
-            "result": {
-              "status": "passed",
-              "duration": 333712
-            },
-            "hidden": true,
-            "match": {
-              "location": "/Users/singhs10/CTRPHipTest/features/step_definitions/step_definitions.js:2"
-            }
-          },
-          {
-            "arguments": [],
             "keyword": "Given ",
             "name": "Login in to CTRP app \"http://ctrp-qa.ncifcrf.gov/\" \"ctrpcurator\" \"Welcome01\"",
             "result": {
               "status": "passed",
-              "duration": 4264013400
+              "duration": 3432426638
             },
             "line": 5,
-            "match": {
-              "location": "/Users/singhs10/CTRPHipTest/features/step_definitions/step_definitions.js:11"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "Select page \"Add Organization\"",
-            "result": {
-              "status": "failed",
-              "duration": 5003576647,
-              "error_message": "function timed out after 5000 milliseconds"
-            },
-            "line": 6,
             "match": {
               "location": "/Users/singhs10/CTRPHipTest/features/step_definitions/step_definitions.js:20"
             }
@@ -49,25 +23,27 @@
           {
             "arguments": [],
             "keyword": "And ",
-            "name": "PO Create Organization \"Henry Ford Health System\" \"Henry Ford\" \"2799 W. Grand Blvd.\" \"Building 5\" \"United States\" \"Michigan\" \"Detroit\" \"48202\" \"henryford@hfs.com\" \"(313) 916-1666\" \"01\"",
+            "name": "Select page \"Add Organization\"",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 9961019444
             },
-            "line": 7,
+            "line": 6,
             "match": {
-              "location": "/Users/singhs10/CTRPHipTest/features/step_definitions/step_definitions.js:27"
+              "location": "/Users/singhs10/CTRPHipTest/features/step_definitions/step_definitions.js:33"
             }
           },
           {
             "arguments": [],
-            "keyword": "After ",
+            "keyword": "And ",
+            "name": "PO Create Organization \"Henry Ford Health System\" \"Henry Ford\" \"2799 W. Grand Blvd.\" \"Building 5\" \"United States\" \"Michigan\" \"Detroit\" \"48202\" \"henryford@hfs.com\" \"(313) 916-1666\" \"01\"",
             "result": {
               "status": "passed",
-              "duration": 103154
+              "duration": 11117786456
             },
-            "hidden": true,
+            "line": 7,
             "match": {
-              "location": "/Users/singhs10/CTRPHipTest/features/step_definitions/step_definitions.js:6"
+              "location": "/Users/singhs10/CTRPHipTest/features/step_definitions/step_definitions.js:40"
             }
           }
         ],
