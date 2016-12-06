@@ -5,7 +5,7 @@ exports.config = {
     onPrepare: function () {
         browser.manage().timeouts().setScriptTimeout(60000);
     },
- //   seleniumAddress: 'http://localhost:4444/wd/hub',
+    //   seleniumAddress: 'http://localhost:4444/wd/hub',
     directConnect: true,
     capabilities: {
         browserName: 'firefox'
@@ -13,18 +13,18 @@ exports.config = {
 
     specs: [
         // Login Page
-       // 'features/Organization/Create_Organization.feature '
-        'features/Organization/Create_Organization.feature '
-   ],
+        // 'features/Organization/Create_Organization.feature '
+        'Create_Organization.feature'
+    ],
 
 
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
-        require: ['features/step_definitions/*.js' ],
+        require: ['step_definitions.js' ],
         format: 'pretty',
         format: 'json:results/output.json',
-       // format: 'pretty',
+        // format: 'pretty',
         resultJsonOutputFile: 'true'
 
     }
