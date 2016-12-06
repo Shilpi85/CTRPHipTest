@@ -9,3 +9,5 @@ with_folders = true
 step_definitions_output_directory = './features/step_definitions'
 actionwords_output_directory = './features/step_definitions'
 split_scenarios = true
+test_run_id = 54697
+push_format = junit
