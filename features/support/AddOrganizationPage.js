@@ -47,6 +47,7 @@ AddOrganizationsPage = function(){
     this.addVerifyEditHeader = element(by.binding('orgDetailView.formTitleLabel'));//element(by.css('h4[ng-if="!orgDetailView.curOrg.new"]'));
     this.verifyAddedOrgAlias = element.all(by.binding('nameAlias.name'));
     this.addOrgCTRPID = element(by.binding('orgDetailView.ctrpOrg.ctrp_id'));//element(by.binding('orgDetailView.curOrg.ctrp_id'));
+    this.addOrgSRCID = element(by.binding('orgDetailView.ctrpOrg.source_id'));
     this.addOrgFieldLabel = element.all(by.css('.control-label.col-xs-12.col-sm-3'));
     this.addOrgFieldLabelPostalCode = element(by.css('.control-label.col-xs-12.col-sm-2'));
     this.addOrgFieldLabelPhone = element(by.css('.control-label.col-xs-12.col-sm-1'));

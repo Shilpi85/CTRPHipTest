@@ -1,0 +1,201 @@
+---
+- name: Login in to CTRP app
+  uid: 4ad1a425-789a-4fb2-92f5-b5bca5b21ad0
+  parameters:
+  - name: URL
+  - name: username
+  - name: password
+  body_hash: fb3b7307868b69869468e77a106e6036
+- name: Select page
+  uid: 25029bbd-7684-4c81-a991-baa46cddf949
+  parameters:
+  - name: page
+  body_hash: f0a875326004d5f03b3a916ebdf62f52
+- name: PO Create Organization
+  uid: 0171442d-c30f-4dfa-8cb3-622dd5983c9a
+  parameters:
+  - name: name
+  - name: alias
+  - name: address1
+  - name: address2
+  - name: country
+  - name: state
+  - name: city
+  - name: postalCode
+  - name: email
+  - name: phone
+  - name: phoneExt
+  body_hash: ed8b726c4f15f4344c8905deb3bf9fea
+- name: Click button
+  uid: ec9614ba-c563-4aaf-92af-25f2bd436a79
+  parameters:
+  - name: button
+  body_hash: 23d653e0cc2851d419e6d83a836057de
+- name: PO Search Organization
+  uid: a088df3e-4820-4b39-9fcf-aa9cb35a59c8
+  parameters:
+  - name: name
+  - name: alias
+  - name: familyName
+  - name: sourceContext
+  - name: sourceID
+  - name: sourceStatus
+  - name: city
+  - name: postalCode
+  - name: country
+  - name: phone
+  - name: email
+  - name: state
+  - name: processingStatus
+  - name: updatedBy
+  - name: serviceRequest
+  - name: lastUpdatedStartDate
+  - name: lastUpdatedEndDate
+  - name: exactSearch
+  body_hash: aeb3a5a2bc33437380bbc91e9b206eca
+- name: Reg Search Organization
+  uid: d2bd54dd-fc3f-4589-bb0c-2576ae2e895d
+  parameters:
+  - name: name
+  - name: alias
+  - name: familyName
+  - name: sourceID
+  - name: city
+  - name: postalCode
+  - name: country
+  - name: phone
+  - name: email
+  - name: state
+  - name: updatedBy
+  - name: exactSearch
+  body_hash: c05ef0079f0f596508a98eaf5266061e
+- name: PO Create Person
+  uid: 0d54bdfe-ebfa-4473-b63c-36725f5dce6d
+  parameters:
+  - name: prefix
+  - name: fName
+  - name: mName
+  - name: lName
+  - name: suffix
+  - name: processinStatus
+  - name: sourceStatus
+  - name: email
+  - name: phone
+  - name: phoneExt
+  - name: affiliatedOrg
+  body_hash: 77f814062f7a322f7d076d3bb281f8ae
+- name: PO Search Person
+  uid: 3717fa43-9ea5-4d03-ae68-8f8ec24d564a
+  parameters:
+  - name: fName
+  - name: lName
+  - name: affiliation
+  - name: sourceContext
+  - name: sourceID
+  - name: sourceStatus
+  - name: email
+  - name: phone
+  - name: processingStatus
+  - name: serviceRequest
+  - name: lastUpdatedStartDate
+  - name: lastUpdatedEndDate
+  - name: updatedBy
+  - name: exactSearch
+  body_hash: 9d40278bae1812c33131a949c39d4ed9
+- name: Reg Search Person
+  uid: 180e94cf-c417-4115-9cef-417169b72bb4
+  parameters:
+  - name: fName
+  - name: lName
+  - name: affiliation
+  - name: sourceID
+  - name: email
+  - name: phone
+  - name: exactSearch
+  body_hash: 4d5c15c239c1f29274032cb44b8998e6
+- name: PO Create Family
+  uid: 1b3de5af-d5dd-4bae-9f31-194d69a46bfd
+  parameters:
+  - name: familyName
+  - name: familyStatus
+  - name: familyType
+  - name: addFamilyMembership
+  body_hash: 660ead4ce44edcb986a5c98386a402f9
+- name: PO Search Family
+  uid: cad4a05d-dce0-4260-8210-d99ddd72e440
+  parameters:
+  - name: name
+  - name: familyType
+  - name: familyStatus
+  - name: exactSearch
+  body_hash: 56ce4453b022b824cd7db1a683f898f0
+- name: Organization Exist
+  uid: e8d213e9-a038-4550-b1c1-9040eb320d12
+  parameters:
+  - name: orgName
+  - name: status
+  body_hash: 9a5a28edced568a2d25b1f7b7b846429
+- name: Organization name
+  uid: 91d9fc36-4fb5-443f-87bf-a48bc616f8de
+  parameters:
+  - name: name
+  body_hash: a120eb6cec09ed3913692275a0f49abd
+- name: Warning Message
+  uid: 7e821d02-40cf-44c3-9f68-cd73e81872e4
+  parameters:
+  - name: warningMessage
+  body_hash: 65c8e00c3f246e85a8ab241174540a1a
+- name: Person Name
+  uid: 5f709f9d-3423-4de0-842f-ea314981da0c
+  parameters:
+  - name: fName
+  - name: lName
+  body_hash: 0b50fc235c747fd350fc0a1c28110409
+- name: Person Exist
+  uid: 9fbc3d7d-a805-4222-9f52-5fdc10ee458e
+  parameters:
+  - name: fName
+  - name: lName
+  - name: status
+  body_hash: 2b6016c1a2982e48457518ddc84f9ece
+- name: Family Exist
+  uid: 756e446b-8c1f-4326-99bf-38870c2ad3c9
+  parameters:
+  - name: familyName
+  - name: status
+  body_hash: c25ffab243fcc9063be93fd25293f6f7
+- name: Family Name
+  uid: 00fd5e6a-5ee5-4926-b590-03f0b90ab090
+  parameters:
+  - name: name
+  body_hash: 671c55c03e262e02358902c405e6bff1
+- name: Family field lengths
+  uid: 7e174b59-2243-4aa2-9d32-a0331fc31934
+  parameters:
+  - name: familyName
+  body_hash: d0343198e4d6becf9472fa5c8c9f4b07
+- name: Organization field lengths
+  uid: 20f080e5-4cf8-467d-a4c3-6d455a6f66a3
+  parameters:
+  - name: name
+  - name: alias
+  - name: address1
+  - name: address2
+  - name: city
+  - name: postalCode
+  - name: email
+  - name: phone
+  - name: phoneExt
+  body_hash: ee929c21d376e945b555067e3977471e
+- name: Person field lengths
+  uid: 711297d7-babe-4ffb-a36c-3f2ce318c210
+  parameters:
+  - name: prefix
+  - name: fName
+  - name: mName
+  - name: lName
+  - name: suffix
+  - name: email
+  - name: phone
+  - name: phoneExt
+  body_hash: 0a31c650afc7521739c9aa555972cdd8
