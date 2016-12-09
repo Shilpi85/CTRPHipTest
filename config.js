@@ -16,7 +16,7 @@ exports.config = {
         // 'features/Organization/Create_Organization.feature '
 
 
-        'features/Critical/Organization/Create_Organization.feature',
+        'features/Critical/Organization/*.feature',
         'features/Critical/Person/*.feature',
         'features/Critical/Family/*.feature',
         'features/MediumPriority/Organization/*.feature',

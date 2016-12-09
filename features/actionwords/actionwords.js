@@ -25,6 +25,7 @@ var projectFunctions = new projectFunctionsPage();
 var helperFunctions = require('../support/helper');
 var helper = new helperFunctions();
 var assert = require('assert');
+
 exports.Actionwords = {
     loginInToCTRPApp: function (url, username, password) {
         // TODO: Implement action: "Given URL of CTRP page is " + String(URL)
@@ -38,7 +39,9 @@ exports.Actionwords = {
         }, 40).then(function () {
             login.login(username, password);
             login.accept();
-            expect(element(by.binding('headerView.username')).getText()).to.eventually.equal(username);
+            element(by.binding('headerView.username')).getText().then(function(loggedInUser){
+            expect(loggedInUser).to.equal(username, 'Verify the user is logged in to CTRP.\n Supplied Username: ' + username + '\n Username after login: ' + loggedInUser + 'Step name :' + stepName);
+            })
         });
     },
     selectPage: function (page) {
@@ -241,7 +244,7 @@ exports.Actionwords = {
         // And Click button "search"
         this.clickButton("search");
         // TODO: Implement result: "Then Result  should be displayed for Person"
-        assert.fail(0, 1, 'Searching with Status should not be allowed');
+        assert.fail(0, 1, 'Searching with Status should not be allowed' +'\nStep name :' + stepName);
     },
     pOCreateFamily: function (family_name, family_status, family_type, add_family_membership) {
         // TODO: Implement action: "And I enter the Family Name " + String(familyName)

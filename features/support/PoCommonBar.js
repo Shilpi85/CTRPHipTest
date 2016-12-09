@@ -79,7 +79,7 @@ var PoCommonBar = function(){
     };
 
     this.clickOrganizations = function(){
-        helper.clickLink(this.organizations, "Organization & Family link");
+        helper.clickLink(this.organizations, "Organization & Family link.");
     };
 
     this.clickJustOrganizations = function(){
