@@ -39,8 +39,8 @@ exports.Actionwords = {
         }, 40).then(function () {
             login.login(username, password);
             login.accept();
-            element(by.binding('headerView.username')).getText().then(function(loggedInUser){
-            expect(loggedInUser).to.equal(username, 'Verify the user is logged in to CTRP.\n Supplied Username: ' + username + '\n Username after login: ' + loggedInUser + 'Step name :' + stepName);
+            element(by.binding('headerView.username')).getText().then(function (loggedInUser) {
+                expect(loggedInUser).to.equal(username, 'Verify the user is logged in to CTRP.\n Supplied Username: ' + username + '\n Username after login: ' + loggedInUser + 'Step name :' + stepName);
             })
         });
     },
@@ -67,7 +67,6 @@ exports.Actionwords = {
                     }
                 });
             }
-
             login.clickWriteMode('On');
             if (page.toUpperCase().replace(/ /g, '') === 'ADDORGANIZATION') {
                 menuItem.clickOrganizations();
@@ -78,7 +77,12 @@ exports.Actionwords = {
                 menuItem.clickAddPerson();
                 expect(element.all(by.binding('step.ncyBreadcrumbLabel')).last().getText()).to.eventually.equal('Add Person');
             } else if (page.toUpperCase().replace(/ /g, '') === 'SEARCHORGANIZATION') {
-                menuItem.clickOrganizations();
+                if (value === 'ctrpcurator') {
+                    menuItem.clickOrganizations();
+                }
+                if (value === 'ctrptrialsubmitter') {
+                    menuItem.clickJustOrganizations();
+                }
                 menuItem.clickListOrganizations();
                 expect(element.all(by.binding('step.ncyBreadcrumbLabel')).last().getText()).to.eventually.equal('Search Organizations');
             } else if (page.toUpperCase().replace(/ /g, '') === 'SEARCHPERSON') {
@@ -92,7 +96,7 @@ exports.Actionwords = {
             } else if (page.toUpperCase().replace(/ /g, '') === 'SEARCHFAMILY') {
                 menuItem.clickOrganizations();
                 menuItem.clickListFamily();
-                expect(element.all(by.binding('step.ncyBreadcrumbLabel')).last().getText()).to.eventually.equal('Search Family');
+                expect(element.all(by.binding('step.ncyBreadcrumbLabel')).last().getText()).to.eventually.equal('Search Families');
             } else {
                 throw 'Not implemented';
             }
@@ -244,14 +248,25 @@ exports.Actionwords = {
         // And Click button "search"
         this.clickButton("search");
         // TODO: Implement result: "Then Result  should be displayed for Person"
-        assert.fail(0, 1, 'Searching with Status should not be allowed' +'\nStep name :' + stepName);
+        assert.fail(0, 1, 'Searching with Status should not be allowed' + '\nStep name :' + stepName);
     },
     pOCreateFamily: function (family_name, family_status, family_type, add_family_membership) {
         // TODO: Implement action: "And I enter the Family Name " + String(familyName)
         // TODO: Implement action: "And I select the Family Status " + String(familyStatus)
         // TODO: Implement action: "And I select the Family Type " + String(familyType)
         // TODO: Implement action: "And I select the Family Membership " + String(addFamilyMembership)
-        throw 'Not implemented';
+        addFamily.setAddFamilyName(family_name);
+        selectValue.selectFamilyStatus(family_status);
+        selectValue.selectFamilyType(family_type);
+        searchOrg.clickOrgSearchModel();
+        searchOrg.setOrgName(add_family_membership);
+        searchOrg.clickSearchButton();
+        searchOrg.selectOrgModelItem();
+        searchOrg.clickOrgModelConfirm();
+        selectValue.selectOrgFamilyRelationship('Affiliation');
+        this.clickButton("save");
+        // TODO: Implement result: "Then Family should be created"
+        expect(element.all(by.binding('step.ncyBreadcrumbLabel')).last().getText()).to.eventually.equal('Family Detail');
     },
     pOSearchFamily: function (name, family_type, family_status, exact_search) {
         // TODO: Implement action: "and I enter the Name " + String(name) + " for Family search"
@@ -259,37 +274,71 @@ exports.Actionwords = {
         // TODO: Implement action: "and I select the Family Status " + String(familyStatus) + " for Family search"
         // TODO: Implement action: "and I check the Exact Search " + String(exactSearch) + " for Family search"
         // And Click button "search"
+        searchFamily.setFamilyName(name);
         this.clickButton("search");
         // TODO: Implement result: "Then Result  should be displayed for Family"
-        throw 'Not implemented';
+        expect(projectFunctions.inSearchResults(name)).to.become('true');
     },
     organizationExist: function (org_name, status) {
         // TODO: Implement action: "and an organization already exist in CTRP with name \"orgName\" and status \"status\""
-        throw 'Not implemented';
+        menuItem.clickHomeEnterOrganizations();
+        searchOrg.setOrgName(org_name);
+        this.clickButton("search");
+        // TODO: Implement result: "Then Result  should be displayed for Organization"
+        //  expect(projectFunctions.inOrgSearchResults(org_name)).to.become('true');
+        login.clickWriteMode('On');
     },
     organizationName: function (name) {
         // TODO: Implement action: "and I enter the Organization name \"name\""
-        throw 'Not implemented';
+        menuItem.clickOrganizations();
+        menuItem.clickAddOrganizations();
+        addOrg.setAddOrgName(name);
+        addOrg.setAddAddress('a');
     },
     warningMessage: function (warning_message) {
         // TODO: Implement action: "and it should give a warning message as \"warningMessage\""
-        throw 'Not implemented';
+        element.all(by.binding('step.ncyBreadcrumbLabel')).last().getText().then(function (value) {
+            if (value === 'Add Person') {
+                throw 'Not implemented';
+            } else if (value === 'Add Organization') {
+                expect(element.all(by.css('.help-block')).get(2).getText()).to.eventually.equal(warning_message);
+                menuItem.clickOrganizations();
+                helper.alertDialog('OK', '');
+                menuItem.clickListOrganizations();
+                helper.alertDialog('OK', '');
+            } else if (value === 'Add Family') {
+                //console.log('Coming here');
+                //element.all(by.css('.help-block')).get(1).getText().then(function(value){
+                //    console.log('Value of text'+ value);
+                //});
+                expect(element.all(by.css('.help-block')).get(1).getText()).to.eventually.equal(warning_message);
+                menuItem.clickOrganizations();
+                helper.alertDialog('OK', '');
+                menuItem.clickListOrganizations();
+                helper.alertDialog('OK', '');
+            } else {
+                throw 'Not implemented';
+            }
+        });
     },
     personName: function (f_name, l_name) {
         // TODO: Implement action: "and I enter the fname as \"fName\" and lname as \"lName\" "
-        throw 'Not implemented';
     },
     personExist: function (f_name, l_name, status) {
         // TODO: Implement action: "and a Person exist with fname as \"fName\" and lName \"lName\" and source status as \"status\""
-        throw 'Not implemented';
     },
     familyExist: function (family_name, status) {
         // TODO: Implement action: "and Family exist with name as \"familyName\" and status as \"status\""
-        throw 'Not implemented';
+
     },
     familyName: function (name) {
         // TODO: Implement action: "and I enter the Family Name as \"name\""
-        throw 'Not implemented';
+        menuItem.clickHomeEnterOrganizations();
+        login.clickWriteMode('On');
+        menuItem.clickOrganizations();
+        menuItem.clickAddFamily();
+        addFamily.setAddFamilyName(name);
+        selectValue.selectFamilyStatus('Active');
     },
     familyFieldLengths: function (family_name) {
         // TODO: Implement action: "and length of Family name should be \"familyName\""
@@ -317,5 +366,43 @@ exports.Actionwords = {
         // TODO: Implement action: "and Person phone field length is \"phone\""
         // TODO: Implement action: "and Person phone Ext field length is \"phoneExt\""
         throw 'Not implemented';
+    },
+    requestNewOrganization: function () {
+        // TODO: Implement action: "and I should be able to request New Organization"
+        var requestOrg = 'To request the creation of a new organization record, please contact the Clinical Trials Reporting Office (CTRO) at ncictro@mail.nih.gov.' +
+            '\n\nThe required information is Organization Name, Street Address, City, State, Country, phone, and email.';
+        element(by.binding('headerView.username')).getText().then(function (value) {
+            if (value === 'ctrpcurator') {
+                throw 'Not implemented';
+                //menuItem.clickHomeEnterOrganizations();
+                //menuItem.clickOrganizations();
+            }
+            if (value === 'ctrptrialsubmitter') {
+                var homeSearchTrial = element(by.css('a[href="#/main/trials"]'));
+                helper.clickLink(homeSearchTrial, "Home Search Trial link");
+                menuItem.clickJustOrganizations();
+
+            }
+            menuItem.clickRequestNewOrganization();
+            expect(element(by.binding('requestCtrl.message')).getText()).to.eventually.equal(requestOrg);
+        });
+    },
+    requestNewPerson: function () {
+        // TODO: Implement action: "And I should be able to Request New Person"
+        var requestPerson = 'To request the creation of a new person record, please contact the Clinical Trials Reporting Office (CTRO) at ncictro@mail.nih.gov.' +
+            '\n\nThe required information is First Name, Last Name, Email, City, State/Province, Country and Organization Affiliation of the Person.'
+        element(by.binding('headerView.username')).getText().then(function (value) {
+            if (value === 'ctrpcurator') {
+                throw 'Not implemented';
+                // menuItem.clickHomeEnterOrganizations();
+            }
+            if (value === 'ctrptrialsubmitter') {
+                var homeSearchTrial = element(by.css('a[href="#/main/trials"]'));
+                helper.clickLink(homeSearchTrial, "Home Search Trial link");
+            }
+            menuItem.clickPeople();
+            menuItem.clickRequestNewPerson();
+            expect(element(by.binding('requestCtrl.message')).getText()).to.eventually.equal(requestPerson);
+        });
     }
 };

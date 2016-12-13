@@ -37,7 +37,8 @@ var PoCommonBar = function(){
     this.loginName = element(by.binding('headerView.username'));
     this.searchEmptyCriteria = element(by.binding('searchWarningMessage'));
     this.addWarningMessage = element.all(by.css('.help-block'));
-
+    this.requestNewOrg = element(by.linkText('Request New Organization'));
+    this.requestNewPerson = element(by.linkText('Request New Person'));
 
     this.orgSearchResult = element.all(by.css('div[ng-repeat="(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name"]'));//element.all(by.binding('grid.getCellValue(row, col) '));element.all(by.css('.ui-grid-row'));
     this.personSearchResult = element.all(by.css('div[ng-repeat="(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name"]'));
@@ -94,6 +95,16 @@ var PoCommonBar = function(){
     this.clickAddOrganizations = function(){
         helper.clickLink(this.addOrganizations, "Add Organization link");
      //  expect(this.add_Org_Page.getText()).to.eventually.equal(add_Org_Page_Text);
+    };
+
+    this.clickRequestNewOrganization = function(){
+        helper.clickLink(this.requestNewOrg, "Request Organization link");
+        //  expect(this.add_Org_Page.getText()).to.eventually.equal(add_Org_Page_Text);
+    };
+
+    this.clickRequestNewPerson = function(){
+        helper.clickLink(this.requestNewPerson, "Request Organization link");
+        //  expect(this.add_Org_Page.getText()).to.eventually.equal(add_Org_Page_Text);
     };
 
     this.clickPeople = function(){

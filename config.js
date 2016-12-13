@@ -19,12 +19,12 @@ exports.config = {
         'features/Critical/Organization/*.feature',
         'features/Critical/Person/*.feature',
         'features/Critical/Family/*.feature',
-        'features/MediumPriority/Organization/*.feature',
-        'features/MediumPriority/Person/*.feature',
-        'features/MediumPriority/Family/*.feature',
-        'features/LowPriority/Organization/*.feature',
-        'features/LowPriority/Person/*.feature',
-        'features/LowPriority/Family/*.feature'
+        'features/Major/Organization/*.feature',
+        'features/Major/Person/*.feature',
+        'features/Major/Family/*.feature',
+        'features/Minor/Organization/*.feature',
+        'features/Minor/Person/*.feature',
+        'features/Minor/Family/*.feature'
     ],
 
 

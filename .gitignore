@@ -5,5 +5,5 @@ node_modules
 results
 results/output.json
 results/cucumber_report_Critical.xml
-results/cucumber_report_Medium.xml
-results/cucumber_report_Low.xml
+results/cucumber_report_Major.xml
+results/cucumber_report_Minor.xml
