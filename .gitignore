@@ -4,6 +4,6 @@ node_modules
 .idea/vcs.xml
 results
 results/output.json
-results/cucumber_report_Critical.xml
-results/cucumber_report_Major.xml
-results/cucumber_report_Minor.xml
+results/cucumber_report_critical.xml
+results/cucumber_report_major.xml
+results/cucumber_report_minor.xml
