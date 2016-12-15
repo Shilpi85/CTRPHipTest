@@ -26,6 +26,7 @@
     "chai": "*",
     "chai-as-promised": "*",
     "cucumber": "^1.2.2",
+    "cucumber-junit": "git://github.com/vincent-psarga/cucumber-junit.git",
     "cucumberjs-junitxml": "^1.0.0",
     "i18n-iso-countries": "^1.7.1",
     "jasmine-reporters": "^2.2.0",

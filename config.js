@@ -3,6 +3,7 @@ exports.config = {
     getPageTimeout: 10000,
 
     onPrepare: function () {
+        browser.driver.manage().window().setSize(1280, 800);
         browser.manage().timeouts().setScriptTimeout(60000);
     },
     //   seleniumAddress: 'http://localhost:4444/wd/hub',
